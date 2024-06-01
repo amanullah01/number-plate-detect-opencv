@@ -29,8 +29,13 @@ while True:
     cv2.imshow('frame', frame)
     cv2.imshow('numberPlate', frameROI)
 
-    if cv2.waitKey(25) & 0xFF == ord('q'):
-        break
+    if cv2.waitKey(25) & 0xFF == ord('s'):
+        cv2.imwrite('./SavedScreenShots/number_plate_'+str(counter)+'.jpg', frameROI)
+        cv2.rectangle(frame, (0, 200), (640, 300), (0, 255, 0), cv2.FILLED)
+        cv2.putText(frame, "Scan Saved", (150, 265), cv2.FONT_HERSHEY_DUPLEX, 2, (0, 0, 255), 2)
+        cv2.imshow('frame', frame)
+        cv2.waitKey(500)
+        counter += 1
 
 video.release()
 cv2.destroyAllWindows()
