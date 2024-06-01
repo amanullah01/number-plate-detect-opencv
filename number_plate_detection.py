@@ -29,6 +29,7 @@ while True:
     cv2.imshow('frame', frame)
     cv2.imshow('numberPlate', frameROI)
 
+    # when press key 's' then it will take screenshot
     if cv2.waitKey(25) & 0xFF == ord('s'):
         cv2.imwrite('./SavedScreenShots/number_plate_'+str(counter)+'.jpg', frameROI)
         cv2.rectangle(frame, (0, 200), (640, 300), (0, 255, 0), cv2.FILLED)
